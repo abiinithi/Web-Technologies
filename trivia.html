@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phineas and Ferb Trivia</title>
+    <link rel="stylesheet" href="homestyle.css">
+    <style>
+        /* General Styles */
+        * {
+            font-family: PandF;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="home.html">
+            <img src="img1.png" alt="Phineas and Ferb Logo" style="width: 120px;">
+        </a>
+        <nav>
+            <a href="#episodes">Episodes</a>
+            <a href="#characters">Characters</a>
+            <a href="#songs">Songs</a>
+            <a href="trivia.html">Trivia</a>
+        </nav>
+        <a href="submissions.html" class="cta">Submissions</a>
+    </header>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        
+        <!-- Trivia Quiz Form -->
+        <section class="quiz-container">
+            <h2>Trivia Quiz</h2><br>
+            <form id="triviaForm">
+                <div class="quiz-section">
+                    <p><strong>Question 1:</strong> What is the name of Phineas and Ferb's pet platypus?</p>
+                    <input type="radio" name="q1" value="A" required> Perry <br>
+                    <input type="radio" name="q1" value="B"> Larry <br>
+                    <input type="radio" name="q1" value="C"> Jerry <br>
+                    <input type="radio" name="q1" value="D"> Barry <br>
+                </div>
+                <div class="quiz-section">
+                    <p><strong>Question 2:</strong> Who is always trying to "bust" Phineas and Ferb?</p>
+                    <input type="radio" name="q2" value="A" required> Isabella <br>
+                    <input type="radio" name="q2" value="B"> Buford <br>
+                    <input type="radio" name="q2" value="C"> Candace <br>
+                    <input type="radio" name="q2" value="D"> Dr. Doofenshmirtz <br>
+                </div>
+                <div class="quiz-section">
+                    <p><strong>Question 3:</strong> What is Dr. Doofenshmirtz’s evil organization's name?</p>
+                    <input type="radio" name="q3" value="A" required> O.W.C.A. <br>
+                    <input type="radio" name="q3" value="B"> L.O.V.E.M.U.F.F.I.N. <br>
+                    <input type="radio" name="q3" value="C"> The Agency <br>
+                    <input type="radio" name="q3" value="D"> G.R.O.U.P. <br>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+            <br>
+            <div id="result" class="result">Submit to view your score</div>
+        </section>
+        <br><br>
+        <!-- Fun Facts -->
+        <section class="fun-facts">
+            <h2>Fun Facts About Phineas and Ferb</h2>
+            <ul>
+                <li>Phineas and Ferb's show takes place during summer vacation.</li>
+                <li>Every episode features a new, inventive project built by the stepbrothers.</li>
+                <li>Doofenshmirtz's inventions are called "Inators" and often malfunction hilariously.</li>
+                <li>Perry the Platypus is actually a secret agent for O.W.C.A. (The Organization Without a Cool Acronym).</li>
+                <li>The show was co-created by Dan Povenmire and Jeff "Swampy" Marsh.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <section class="promo">
+        <h2>Ferb, I know what we're gonna do today!</h2>
+        <p>If I had a nickel for every time I was doomed by a puppet, I’d have two nickels. Which isn't a lot, but it’s weird that it happened twice, right?</p>
+    </section>
+
+    <footer>
+        <p>Abinithi Pandian R<br>311122104002</p>
+    </footer>
+
+    <!-- JavaScript to Handle Form Submission -->
+    <script>
+        document.getElementById('triviaForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            let score = 0;
+            const correctAnswers = {
+                q1: 'A',
+                q2: 'C',
+                q3: 'B'
+            };
+
+            // Loop through each question and check answers
+            const form = event.target;
+            for (let question in correctAnswers) {
+                if (form[question].value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<p>You scored ${score} out of 3!</p>`;
+        });
+    </script>
+
+</body>
+</html>
